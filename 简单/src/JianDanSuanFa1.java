@@ -6,7 +6,7 @@ import java.util.*;
  * @create 2021-09-20 16:56
  */
 
-public class JianDanSuanFa {
+public class JianDanSuanFa1 {
     public static class TreeNode {
         int val;
         TreeNode left;
