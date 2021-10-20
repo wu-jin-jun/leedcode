@@ -77,13 +77,9 @@ public class ZhongDengSuanFa1 {
     }
 
     public static void main(String[] args) {
+        String s = "abc";
+        StringBuffer stringBuffer = new StringBuffer("abc");
+        System.out.println(s.equals(stringBuffer));
 
-        int[] ints = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int[] ints1 = {0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        List<Integer> list = new ArrayList(Collections.singleton(ints));
-        List<Integer> list1 = new ArrayList(Collections.singleton(ints1));
-        System.out.println(list);
-        list.retainAll(list1);
-        System.out.println(list);
     }
 }
