@@ -1,7 +1,6 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.sql.Connection;
+import java.util.*;
+import java.util.stream.Stream;
 
 /**
  * @author shkstart
@@ -76,10 +75,10 @@ public class ZhongDengSuanFa1 {
         return list;
     }
 
+    public static void println(String s){
+        System.out.println(s);
+    }
     public static void main(String[] args) {
-        String s = "abc";
-        StringBuffer stringBuffer = new StringBuffer("abc");
-        System.out.println(s.equals(stringBuffer));
-
+        println("abc");
     }
 }

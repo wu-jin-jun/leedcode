@@ -84,7 +84,7 @@ public class 排序算法 {
      * @param nums
      */
     public static void GuiBing(int[] nums){
-        GuiBing1(nums,0,nums.length-1);
+        GuiBing(nums,0,nums.length-1);
     }
 
     /**
@@ -93,15 +93,15 @@ public class 排序算法 {
      * @param startIndex    需要排序的数组的开始索引
      * @param endIndex      需要排序的数组的结束索引
      */
-    public static void GuiBing1(int[] nums,int startIndex,int endIndex){
+    public static void GuiBing(int[] nums,int startIndex,int endIndex){
         if(startIndex == endIndex){
             return;
         }
         int mid = startIndex + (endIndex-startIndex)/2;
         if (startIndex < endIndex){
-            GuiBing1(nums,startIndex,mid);
-            GuiBing1(nums,mid+1,endIndex);
-            GuiBing2(nums,startIndex,mid,endIndex);
+            GuiBing(nums,startIndex,mid);
+            GuiBing(nums,mid+1,endIndex);
+            GuiBing(nums,startIndex,mid,endIndex);
         }
     }
 
@@ -112,7 +112,7 @@ public class 排序算法 {
      * @param midIndex      需要排序的数组的第一个区域的结束索引
      * @param endIndex      需要排序的数组的第二个结束索引
      */
-    public static void GuiBing2(int[] nums,int startIndex,int midIndex,int endIndex){
+    public static void GuiBing(int[] nums,int startIndex,int midIndex,int endIndex){
         int start1 = startIndex;
         int start2 = midIndex+1;
         int index = 0;
@@ -140,14 +140,40 @@ public class 排序算法 {
             nums[startIndex+i] = ints[i];
         }
     }
+
+    /**
+     * 希尔排序
+     * @param nums
+     */
+    public static void xiEr(int[] nums){
+        int length = nums.length;
+        int i = 1;
+        do{
+            i <<=  1;
+        }while (i < nums.length/2);
+        while (i > 0){
+            for (int j = 0; j < i; j++) {
+                for ( int n = i + j;n < length; n+=i) {
+                    int m = n;
+                    while (m >= i && nums[m] < nums[m-i]){
+                        int num = nums[m];
+                        nums[m] = nums[m-i];
+                        nums[m-i] = num;
+                        m -= i;
+                    }
+                }
+            }
+            i >>= 1;
+        }
+    }
     public static void main(String[] args) {
-        int[] ints = new int[20000000];
+        int[] ints = new int[2000000];
         for (int i = 0; i < ints.length; i++) {
-            int v = (int)(Math.random()*20000000);
+            int v = (int)(Math.random()*100000);
             ints[i] = v;
         }
         long l = System.currentTimeMillis();
-        TongPai(ints);
+        xiEr(ints);
         System.out.println(System.currentTimeMillis()-l);
     }
 }
